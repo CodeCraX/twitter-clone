@@ -12,4 +12,4 @@ class Tweet(models.Model):
 		ordering = ('created',)
 
 
-		sadlkfsladkjf
+		
