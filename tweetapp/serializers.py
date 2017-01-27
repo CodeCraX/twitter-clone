@@ -2,14 +2,14 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Tweet
 
-class TweetSerializer(serializers.HyperlinkedModelSerializer):
+class TweetSerializer(serializers.ModelSerializer):
 	owner = serializers.ReadOnlyField(source='owner.username')
-
+	
 	class Meta:
 		model = Tweet
-		fields = ('id', 'owner', 'created', 'text')
+		fields = ('id', 'owner', 'created', 'tweet', 'liked_by')
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 	tweets = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 	likes = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
