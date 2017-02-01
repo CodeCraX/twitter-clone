@@ -27,7 +27,7 @@ gunicorn -w 4 mysite.wsgi:apllication &
 sudo nano /etc/nginx/sites-available/myprojectserver  
 
 ###server configration
-...
+```
 server {  
     listen 80;  
     server_name 38.76.11.161  
