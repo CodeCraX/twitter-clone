@@ -15,10 +15,34 @@ And it's done! Enjoy..
 
 #Running the same project on nginx
 
-pip install -r requirements.txt
+pip install -r requirements.txt  
   ./manage.py makemigrations  
   ./manage.py migrate  
   ./manage.py loaddata sites  
   ./manage.py collectstatic  
   
 ##Starting Gunicorn
+
+gunicorn -w 4 mysite.wsgi:apllication &  
+sudo nano /etc/nginx/sites-available/myprojectserver  
+
+###server configration
+
+server {
+    listen 80;
+    server_name 38.76.11.161
+    access_log off;
+
+    location /static/ {
+        alias /home/ubuntu/work/myproject/static/;
+    }
+
+    location / {
+            proxy_pass http://127.0.0.1:8000;
+    }
+}
+
+cd /etc/nginx/sites-enabled
+sudo ln -s ../sites-available/myproject
+sudo rm default
+sudo service nginx restart
