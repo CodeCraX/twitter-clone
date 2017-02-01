@@ -44,6 +44,7 @@ server {
 
 
 
+
 cd /etc/nginx/sites-enabled  
 sudo ln -s ../sites-available/myproject  
 sudo rm default  
