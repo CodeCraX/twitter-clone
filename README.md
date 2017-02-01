@@ -16,9 +16,9 @@ And it's done! Enjoy..
 #Running the same project on nginx
 
 pip install -r requirements.txt
-  ./manage.py makemigrations
-  ./manage.py migrate
-  ./manage.py loaddata sites
-  ./manage.py collectstatic
+  ./manage.py makemigrations  
+  ./manage.py migrate  
+  ./manage.py loaddata sites  
+  ./manage.py collectstatic  
   
 ##Starting Gunicorn
