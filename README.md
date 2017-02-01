@@ -28,19 +28,21 @@ sudo nano /etc/nginx/sites-available/myprojectserver
 
 ###server configration
 
-server {  
-   </t> listen 80;  
-   </t> server_name 38.76.11.161  
-   </t> access_log off;  
-    
-   </t> location /static/ {  
-   </t></t>     alias /home/ubuntu/work/myproject/static/;  
-  </t></t>    }  
+server {
+    listen 80;
+    server_name 38.76.11.161
+    access_log off;
 
-   </t>  location / {  
-    </t></t>  proxy_pass http://127.0.0.1:8000;  
- </t></t>     }    
-}  
+    location /static/ {
+        alias /home/ubuntu/work/myproject/static/;
+    }
+
+    location / {
+            proxy_pass http://127.0.0.1:8000;
+    }
+}
+
+
 
 cd /etc/nginx/sites-enabled  
 sudo ln -s ../sites-available/myproject  
