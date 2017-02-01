@@ -27,7 +27,7 @@ gunicorn -w 4 mysite.wsgi:apllication &
 sudo nano /etc/nginx/sites-available/myprojectserver  
 
 ###server configration
-
+...
 server {  
     listen 80;  
     server_name 38.76.11.161  
@@ -41,7 +41,7 @@ server {
             proxy_pass http://127.0.0.1:8000;
     }
 }
-
+...
 
 
 
